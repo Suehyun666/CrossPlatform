@@ -9,27 +9,31 @@ include(${wxWidgets_USE_FILE})
 
 set(COMMON_SOURCES
         src/main.cpp
+        src/common/AppManager.cpp
         src/common/Processes.cpp
-        src/ui/MyApp.cpp
-        src/ui/MyFrame.cpp
+        src/common/FileManager.cpp
+        src/ui/MainFrame.cpp
+        src/ui/wxApp.cpp
 )
 
 if(WIN32)
     set(PLATFORM_SOURCES
             src/platforms/windows/WindowsFactory.cpp
-            src/platforms/windows/WindowsProcessesImpl.cpp
-            src/platforms/windows/WindowsFilesImpl.cpp)
+            src/platforms/windows/WindowsProcessesImpl.cpp)
+    set(GUI_TYPE WIN32)
 elseif(APPLE)
     set(PLATFORM_SOURCES
             src/platforms/cocoa/CocoaFactory.cpp
             src/platforms/cocoa/CocoaProcessesImpl.cpp)
-else() # Linux 등
+    set(GUI_TYPE MACOSX_BUNDLE)
+else()
     set(PLATFORM_SOURCES
             src/platforms/linux/LinuxFactory.cpp
             src/platforms/linux/LinuxProcessesImpl.cpp)
+    set(GUI_TYPE "")
 endif()
 
-add_executable(${PROJECT_NAME} ${COMMON_SOURCES} ${PLATFORM_SOURCES})
+add_executable(${PROJECT_NAME} ${GUI_TYPE} ${COMMON_SOURCES} ${PLATFORM_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${wxWidgets_LIBRARIES})
 

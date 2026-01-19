@@ -1,0 +1,8 @@
+//
+// Created by stanislav on 26. 1. 19..
+//
+
+#ifndef CROSSPLATFORM_APPCONTEXT_H
+#define CROSSPLATFORM_APPCONTEXT_H
+
+#endif //CROSSPLATFORM_APPCONTEXT_H

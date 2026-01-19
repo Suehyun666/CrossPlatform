@@ -1,0 +1,8 @@
+//
+// Created by stanislav on 26. 1. 19..
+//
+
+#ifndef CROSSPLATFORM_SOURCEADAPTER_H
+#define CROSSPLATFORM_SOURCEADAPTER_H
+
+#endif //CROSSPLATFORM_SOURCEADAPTER_H
